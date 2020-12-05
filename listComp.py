@@ -2,7 +2,7 @@
 import random
 from functools import reduce
 
-# warm up list comprehension
+# basic list comprehension
 kilometer = [39.2, 36.5, 37.3, 37.8]
 feet = [float(3280.9)*x for x in kilometer]
 feet = [int(x) for x in feet]
