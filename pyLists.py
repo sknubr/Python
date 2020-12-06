@@ -35,3 +35,32 @@ courses.pop()
 courses.extend(courses_supplementary)
 print(courses)
 print(az_courses)
+
+# get index of an item in a list
+print(courses.index('Chemistry'))
+print('Chemistry' in courses)     # exists
+print('Philosophy' in courses)   # does not exist
+
+# if we need to get both the index and the value from a list we can use enumerate. To have index start at 1 (instead of 0) use parameter start=1
+for index, course in enumerate(courses, start=1):
+    print(index, course)
+
+# to convert a list to a string use join with separator
+str_courses = ','.join(courses)
+print(str_courses)
+# to get back the list use split
+list_courses = str_courses.split(',')
+print(list_courses)
+
+# Lists (and dict) are mutable. list2 = list1 is assigns both pointers to be the same memory address so change in one changes the other.
+copy_courses = courses
+# To create a new list from contents but not share addresses create a new list by list() or slicing [:]
+new_courses = list(courses)      # we can also use new_courses = courses[:]
+# verifying that one was a shared pointer and the other was a new copy
+
+courses[0] = "Engineering fundamentals"
+print("courses -- original                                ", courses, id(courses))
+print("copy_courses -- shared pointer                     ",
+      copy_courses, id(copy_courses))
+print("new courses  -- new list with content of original  ",
+      new_courses, id(new_courses))
